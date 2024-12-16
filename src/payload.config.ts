@@ -5,7 +5,7 @@ import sharp from 'sharp' // sharp-import
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
-
+import {Files } from './collections/Files'
 import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
@@ -16,6 +16,10 @@ import { Header } from './Header/config'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
+
+import { s3Storage } from '@payloadcms/storage-s3'
+import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
+import { Form } from 'react-hook-form'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -62,12 +66,28 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
-  collections: [Pages, Posts, Media, Categories, Users],
+  collections: [Pages, Posts, Media, Categories, Users, Files],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [
     ...plugins,
     // storage-adapter-placeholder
+    // payloadCloudPlugin(),
+    // s3Storage({
+    //   collections: {
+    //     media: true
+    //   },
+    //   bucket: process.env.S3_BUCKET_NAME || "",
+    //   config: {
+    //     forcePathStyle: true,
+    //     region: process.env.S3_REGION || "",
+    //     endpoint: process.env.S3_ENDPOINT || "",
+    //     credentials: {
+    //       accessKeyId: process.env.S3_ACCESS_KEY || "",
+    //       secretAccessKey: process.env.S3_SECRET_KEY || ""
+    //     }
+    //   }
+    // })
   ],
   secret: process.env.PAYLOAD_SECRET,
   sharp,
