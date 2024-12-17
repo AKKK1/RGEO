@@ -17,6 +17,7 @@ export interface Config {
     categories: Category;
     users: User;
     files: File;
+    SliderInfo: SliderInfo;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -33,6 +34,7 @@ export interface Config {
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     files: FilesSelect<false> | FilesSelect<true>;
+    SliderInfo: SliderInfoSelect<false> | SliderInfoSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -629,6 +631,40 @@ export interface Form {
 export interface File {
   id: string;
   alt: string;
+  caption?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SliderInfo".
+ */
+export interface SliderInfo {
+  id: string;
+  alt: string;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -739,6 +775,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'files';
         value: string | File;
+      } | null)
+    | ({
+        relationTo: 'SliderInfo';
+        value: string | SliderInfo;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -1080,6 +1120,25 @@ export interface UsersSelect<T extends boolean = true> {
  * via the `definition` "files_select".
  */
 export interface FilesSelect<T extends boolean = true> {
+  alt?: T;
+  caption?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SliderInfo_select".
+ */
+export interface SliderInfoSelect<T extends boolean = true> {
   alt?: T;
   updatedAt?: T;
   createdAt?: T;

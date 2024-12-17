@@ -18,6 +18,11 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   const [theme, setTheme] = useState<string | null>(null)
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
   const pathname = usePathname()
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleClick = () => {
+    setIsOpen(!isOpen)
+  }
 
   useEffect(() => {
     setHeaderTheme(null)
@@ -30,9 +35,12 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   }, [headerTheme])
 
   return (
-    <header className="container relative z-20   " {...(theme ? { 'data-theme': theme } : {})}>
-      <div className="py-8 fixed flex bg-white w-full text-black text-black p-3 gap-8 justify-center">
-        <Link href="/">
+    <header
+      className=" fixed top-0 left-0 right-0 bg-slate-800 z-20 shadow-md"
+      {...(theme ? { 'data-theme': theme } : {})}
+    >
+      <div className="flex items-center justify-between py-4 px-3 max-w-7xl mx-auto text-lg">
+        <Link className="px-5" href="/">
           <Logo loading="eager" priority="high" className="invert dark:invert-0" />
         </Link>
         <HeaderNav data={data} />

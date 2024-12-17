@@ -1,0 +1,3 @@
+frontnd  slug page.tsx   da mand  if (!page && slug === 'home') {
+  //   page = homeStatic
+  // }  radgan chveni page gavushvat
