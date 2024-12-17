@@ -28,7 +28,7 @@ export const VideoMedia: React.FC<MediaProps> = (props) => {
 
     return (
       <video
-        autoPlay={true}
+        autoPlay={false}
         className={cn(videoClassName)}
         controls={true}
         loop
