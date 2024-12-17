@@ -19,15 +19,22 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import Caru from '@/components/Carousel/Caru'
-import { Search, SearchIcon } from 'lucide-react'
+import { PhoneCall, Search, SearchIcon } from 'lucide-react'
 
 const page = () => {
   return (
     <div className="w-full">
       {/* პირველი სექცია */}
       <section className="pt-15  h-[160px] w-full bg-white flex items-center justify-center px-6 shadow-md">
-        <div className=" right-300 flex  justify-center items-center gap-4">
-          <div className="text-2xl font-bold text-[#000]">დაგვირეკეთ აქ</div>
+        <div className=" right-300 flex justify-center items-center gap-2">
+          <div
+            className="text-2xl font-bold text-[#000]
+          rounded-full bg-green-500 py-3  px-10 right-10"
+          >
+            <p className="text-white">ადვოკატის დახმარება</p>
+          </div>
+          <PhoneCall />
+
           <div className="relative w-[300px]"></div>
         </div>
       </section>
@@ -78,11 +85,19 @@ const page = () => {
       </section>
 
       {/* მესამე სექცია */}
-      <section className="h-[906px] bg-[#0f327e] w-full flex items-center justify-center px-4">
-        {/* სლაიდერი */}
-        <div className="w-full max-w-4xl">
-          {/* აქ მოათავსე შენი სლაიდერი */}
-          <Caru />
+      <section
+        className="h-[910px] bg-[#ffffff] w-full flex items-center  justify-center px-4 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/media/omi.png')",
+        }}
+      >
+        <div className="flex justify-center align-center flex-row text-center gap-30">
+          {/* სლაიდერი */}
+
+          <div className="w-full max-w-7xl">
+            {/* აქ მოათავსე შენი სლაიდერი */}
+            <Caru />
+          </div>
         </div>
       </section>
     </div>
