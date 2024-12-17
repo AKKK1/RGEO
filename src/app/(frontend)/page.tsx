@@ -25,17 +25,37 @@ const page = () => {
   return (
     <div className="w-full">
       {/* პირველი სექცია */}
-      <section className="pt-15  h-[160px] w-full bg-white flex items-center justify-center px-6 shadow-md">
+      <section className="pt-15  h-[160px] w-full bg-white flex items-center justify-center flex-end px-6 shadow-md">
         <div className=" right-300 flex justify-center items-center gap-2">
           <div
             className="text-2xl font-bold text-[#000]
-          rounded-full bg-green-500 py-3  px-10 right-10"
+          rounded-full flex items-center justify-center gap-3 bg-green-500 py-3  px-10 right-10"
           >
+            <PhoneCall className="text-white" />
+
             <p className="text-white">ადვოკატის დახმარება</p>
           </div>
-          <PhoneCall />
+          <div
+            className="text-2xl font-bold text-[#000]
+          rounded-full flex items-center justify-center gap-3 bg-green-500 py-3  px-10 right-10"
+          >
+            <PhoneCall className="text-white" />
 
-          <div className="relative w-[300px]"></div>
+            <p className="text-white">მედია</p>
+          </div>
+          <div
+            className="text-black bg-cover h-18 w-18 "
+            style={{
+              backgroundImage: "url('/media/ragacnairisvg.svg')",
+            }}
+          >
+            <p
+              className="text-2xl font-bold text-[#000]
+           flex items-center justify-center gap-3 py-3  px-10 right-10"
+            >
+              ჩვენს შესახებ
+            </p>
+          </div>
         </div>
       </section>
 
@@ -74,6 +94,7 @@ const page = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac velit fermentum,
             dignissim ligula vitae, pretium purus.
           </p>
+          <Image src="/media/main.png" alt="rame" height={300} width={400} loading="lazy" />
         </div>
         <div className="h-[350px] w-[600px] bg-gray-100 rounded-md shadow p-4">
           <h3 className="text-lg font-semibold mb-2">პოსტი 3</h3>
