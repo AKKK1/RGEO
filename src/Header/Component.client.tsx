@@ -43,6 +43,9 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
         <Link className="px-5" href="/">
           <Logo loading="eager" priority="high" className="invert dark:invert-0" />
         </Link>
+        <h1 className="lg:hidden   text-2xl bg-black/5 rounded-[6px] sm:text-1xl  flex items-center justify-center text-center">
+          დიდება თავისუფლებას!
+        </h1>
         <HeaderNav data={data} />
       </div>
     </header>

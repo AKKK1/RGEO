@@ -1,5 +1,9 @@
+import daisyui from "daisyui"
+
+import tailwindcssAnimate from 'tailwindcss-animate';
+import typography from '@tailwindcss/typography';
 /** @type {import('tailwindcss').Config} */
-export default {
+const tailwindConfig = {
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -7,7 +11,8 @@ export default {
     './src/**/*.{ts,tsx}',
   ],
   darkMode: ['selector', '[data-theme="dark"]'],
-  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
+  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography'),    daisyui,
+  ],
   prefix: '',
   safelist: [
     'lg:col-span-4',
@@ -145,4 +150,6 @@ export default {
       }),
     },
   },
-}
+};
+
+export default tailwindConfig;

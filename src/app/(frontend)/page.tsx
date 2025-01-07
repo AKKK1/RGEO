@@ -23,26 +23,18 @@ import { PhoneCall, Search, SearchIcon } from 'lucide-react'
 
 const page = () => {
   return (
-    <div className="w-full">
+    <div className="w-full overflow-x-hidden">
       {/* პირველი სექცია */}
-      <section className="pt-15  h-[160px] w-full bg-white flex items-center justify-center flex-end px-6 shadow-md">
+      <section className="pt-20  h-[160px] w-full bg-white flex items-center justify-center flex-end px-6 shadow-md">
         <div className=" right-300 flex justify-center items-center gap-2">
           <div
-            className="text-2xl font-bold text-[#000]
+            className="sm:text-sm text-2xl font-bold text-[#000]
           rounded-full flex items-center justify-center gap-3 bg-green-500 py-3  px-10 right-10"
-          >
-            <PhoneCall className="text-white" />
-
-            <p className="text-white">ადვოკატის დახმარება</p>
-          </div>
+          ></div>
           <div
-            className="text-2xl font-bold text-[#000]
+            className="sm:text-sm text-2xl font-bold text-[#000]
           rounded-full flex items-center justify-center gap-3 bg-green-500 py-3  px-10 right-10"
-          >
-            <PhoneCall className="text-white" />
-
-            <p className="text-white">მედია</p>
-          </div>
+          ></div>
           <div
             className="text-black bg-cover h-18 w-18 "
             style={{
@@ -72,7 +64,7 @@ const page = () => {
             priority
             className="rounded-lg"
           />
-          <h1 className="absolute inset-0 flex items-center justify-center text-center text-4xl sm:text-5xl font-bold uppercase text-black drop-shadow-[0_0_6px_rgb(255,255,255)] ">
+          <h1 className="absolute inset-0 flex items-center justify-center text-center text-4xl sm:text-3xl font-bold uppercase lg:text-5xl text-black drop-shadow-[0_0_6px_rgb(255,255,255)] responsive ">
             არა რუსულ რეჟიმს! <br /> დაიცავი საქართველო! <br /> ძალა ერთობაშია!
           </h1>
         </div>
