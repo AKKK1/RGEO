@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react'
 import { useDebounce } from '@/utilities/useDebounce'
 import { useRouter } from 'next/navigation'
 
-export const Search: React.FC = () => {
+export const MainSearch: React.FC = () => {
   const [value, setValue] = useState('')
   const router = useRouter()
 

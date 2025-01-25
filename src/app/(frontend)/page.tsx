@@ -1,10 +1,8 @@
-// import PageTemplate, { generateMetadata } from './[slug]/page'
+import PageTemplate, { generateMetadata } from './[slug]/page'
 
-// export default PageTemplate
+export default PageTemplate
 
-// export { generateMetadata }
-
-'use client'
+export { generateMetadata }
 
 import React from 'react'
 import Link from 'next/link'
@@ -19,102 +17,92 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import Caru from '@/components/Carousel/Caru'
-import { PhoneCall, Search, SearchIcon } from 'lucide-react'
+import { PhoneCall, SearchCheck, SearchCheckIcon, SearchIcon } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { GoCommit } from 'react-icons/go'
+import { Search } from '@/search/Component'
+import { MainSearch } from '@/search/MainSearch'
 
-const page = () => {
-  return (
-    <div className="w-full overflow-x-hidden">
-      {/* პირველი სექცია */}
-      <section className="pt-20  h-[160px] w-full bg-white flex items-center justify-center flex-end px-6 shadow-md">
-        <div className=" right-300 flex justify-center items-center gap-2">
-          <div
-            className="sm:text-sm text-2xl font-bold text-[#000]
-          rounded-full flex items-center justify-center gap-3 bg-green-500 py-3  px-10 right-10"
-          ></div>
-          <div
-            className="sm:text-sm text-2xl font-bold text-[#000]
-          rounded-full flex items-center justify-center gap-3 bg-green-500 py-3  px-10 right-10"
-          ></div>
-          <div
-            className="text-black bg-cover h-18 w-18 "
-            style={{
-              backgroundImage: "url('/media/ragacnairisvg.svg')",
-            }}
-          >
-            <p
-              className="text-2xl font-bold text-[#000]
-           flex items-center justify-center gap-3 py-3  px-10 right-10"
-            >
-              ჩვენს შესახებ
-            </p>
-          </div>
-        </div>
-      </section>
+// const page = () => {
+//   return (
+//     <div className="w-full overflow-x-hidden">
+//       {/* პირველი სექცია */}
+//       {/* <section
+//         className="pt-20  h-[582px] w-full  flex items-center justify-center flex-end px-6 shadow-md bg-cover bg-center "
+//         style={{ backgroundImage: "url('/media/des.png')" }}
+//       >
+//         <h1> ყველანი შენს გვერდით</h1>
+//       </section> */}
+//       <header
+//         className="relative w-full h-[582px] bg-cover bg-center"
+//         style={{ backgroundImage: "url('/media/des.png')" }}
+//       >
+//         <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center text-white">
+//           <h1 className="text-[80px] font-poppins font-medium leading-[120px] mb-4 decoration-from-font decoration-skip-ink-none">
+//             ყველანი შენს გვერდით
+//           </h1>
+//           <div className="flex w-full max-w-sm items-center space-x-2 mt-38px">
+//             <SearchCheckIcon
+//               className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white"
+//               size={20}
+//             />
+//             <MainSearch />
+//             <Button type="submit" className="rounded-full bg-blue-400">
+//               <GoCommit />
+//             </Button>
+//           </div>
+//         </div>
+//       </header>
 
-      {/* მეორე სექცია */}
-      <section className="relative w-full h-[387px] flex justify-center items-center bg-white overflow-hidden">
-        <div className="relative w-[1821px] h-[387px] mx-auto">
-          <Image
-            src="/media/main.svg" // სურათის ბილიკი
-            alt="Background Image"
-            layout="responsive" // Image ბლოკი გაწერს სურათს სრული კონტროლით
-            width={1821}
-            height={387}
-            objectFit="cover"
-            priority
-            className="rounded-lg"
-          />
-          <h1 className="absolute inset-0 flex items-center justify-center text-center text-4xl sm:text-3xl font-bold uppercase lg:text-5xl text-black drop-shadow-[0_0_6px_rgb(255,255,255)] responsive ">
-            არა რუსულ რეჟიმს! <br /> დაიცავი საქართველო! <br /> ძალა ერთობაშია!
-          </h1>
-        </div>
-      </section>
+//       {/* მეორე სექცია */}
+//       <section className="relative w-full h-[387px] flex justify-center items-center bg-white overflow-hidden"></section>
 
-      {/* პოსტის ბლოკები */}
-      <section className="flex flex-wrap justify-center gap-4 p-4 md:p-8 bg-white shadow-md">
-        {/* თითოეული პოსტი */}
-        <div className="h-[350px] w-[600px] bg-gray-100 rounded-md shadow p-4">
-          <h3 className="text-lg font-semibold mb-2">პოსტი 1</h3>
-          <p className="text-sm text-gray-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac velit fermentum,
-            dignissim ligula vitae, pretium purus.
-          </p>
-        </div>
-        <div className="h-[350px] w-[600px] bg-gray-100 rounded-md shadow p-4">
-          <h3 className="text-lg font-semibold mb-2">პოსტი 2</h3>
-          <p className="text-sm text-gray-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac velit fermentum,
-            dignissim ligula vitae, pretium purus.
-          </p>
-          <Image src="/media/main.png" alt="rame" height={300} width={400} loading="lazy" />
-        </div>
-        <div className="h-[350px] w-[600px] bg-gray-100 rounded-md shadow p-4">
-          <h3 className="text-lg font-semibold mb-2">პოსტი 3</h3>
-          <p className="text-sm text-gray-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac velit fermentum,
-            dignissim ligula vitae, pretium purus.
-          </p>
-        </div>
-      </section>
+//       {/* პოსტის ბლოკები */}
+//       <section className="flex flex-wrap justify-center gap-4 p-4 md:p-8 bg-white shadow-md">
+//         {/* თითოეული პოსტი */}
+//         <div className="h-[350px] w-[600px] bg-gray-100 rounded-md shadow p-4">
+//           <h3 className="text-lg font-semibold mb-2">პოსტი 1</h3>
+//           <p className="text-sm text-gray-600">ტელეგრამ ლინკი</p>
+//           <Link href="https://www.facebook.com/" rel="noopener noreferrer">
+//             linki
+//           </Link>
+//         </div>
+//         <div className="h-[350px] w-[600px] bg-gray-100 rounded-md shadow p-4">
+//           <h3 className="text-lg font-semibold mb-2">პოსტი 2</h3>
+//           <p className="text-sm text-gray-600">
+//             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac velit fermentum,
+//             dignissim ligula vitae, pretium purus.
+//           </p>
+//           <Image src="/media/main.png" alt="rame" height={300} width={400} loading="lazy" />
+//         </div>
+//         <div className="h-[350px] w-[600px] bg-gray-100 rounded-md shadow p-4">
+//           <h3 className="text-lg font-semibold mb-2">პოსტი 3</h3>
+//           <p className="text-sm text-gray-600">
+//             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac velit fermentum,
+//             dignissim ligula vitae, pretium purus.
+//           </p>
+//         </div>
+//       </section>
 
-      {/* მესამე სექცია */}
-      <section
-        className="h-[910px] bg-[#ffffff] w-full flex items-center  justify-center px-4 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/media/omi.png')",
-        }}
-      >
-        <div className="flex justify-center align-center flex-row text-center gap-30">
-          {/* სლაიდერი */}
+//       {/* მესამე სექცია */}
+//       <section
+//         className="h-[910px] bg-[#ffffff] w-full flex items-center  justify-center px-4 bg-cover bg-center"
+//         style={{
+//           backgroundImage: "url('/media/omi.png')",
+//         }}
+//       >
+//         <div className="flex justify-center align-center flex-row text-center gap-30">
+//           {/* სლაიდერი */}
 
-          <div className="w-full max-w-7xl">
-            {/* აქ მოათავსე შენი სლაიდერი */}
-            <Caru />
-          </div>
-        </div>
-      </section>
-    </div>
-  )
-}
+//           <div className="w-full max-w-7xl">
+//             {/* აქ მოათავსე შენი სლაიდერი */}
+//             <Caru />
+//           </div>
+//         </div>
+//       </section>
+//     </div>
+//   )
+// }
 
-export default page
+// export default page

@@ -15,7 +15,7 @@ export async function Footer() {
 
   return (
     <footer
-      className="mt-auto border-t border-border bg-[#182385] 
+      className="mt-auto border-t border-border bg-[#1d232a] 
     // dark:bg-card
      text-white
     "
@@ -29,7 +29,7 @@ export async function Footer() {
           <ThemeSelector />
           <nav className="flex flex-col md:flex-row gap-4">
             {navItems.map(({ link }, i) => {
-              return <CMSLink className="text-black" key={i} {...link} />
+              return <CMSLink className="text-white" key={i} {...link} />
             })}
           </nav>
         </div>

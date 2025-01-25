@@ -8,6 +8,7 @@ import type { Header } from '@/payload-types'
 
 import { Logo } from '@/components/Logo/Logo'
 import { HeaderNav } from './Nav'
+import Image from 'next/image'
 
 interface HeaderClientProps {
   data: Header
@@ -36,17 +37,30 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 
   return (
     <header
-      className=" fixed top-0 left-0 right-0 bg-[#182385] z-20 shadow-md"
+      className=" fixed top-0 left-0 right-0  z-20 shadow-md"
       {...(theme ? { 'data-theme': theme } : {})}
     >
       <div className="flex items-center justify-between py-4 px-3 max-w-7xl mx-auto text-lg">
         <Link className="px-5" href="/">
           <Logo loading="eager" priority="high" className="invert dark:invert-0" />
         </Link>
-        <h1 className="lg:hidden   text-2xl bg-black/5 rounded-[6px] sm:text-1xl  flex items-center justify-center text-center">
-          დიდება თავისუფლებას!
-        </h1>
+
         <HeaderNav data={data} />
+
+        <div className="flex items-center justify-center gap-3  ">
+          <Link href="https://t.me/+iF8aQyyaNvM1YTNi" rel="noopener noreferrer " target="_blank">
+            <p>მოგვწერეთ აქ </p>
+          </Link>
+
+          <Link
+            href="https://t.me/+iF8aQyyaNvM1YTNi"
+            rel="noopener noreferrer"
+            target="_blank"
+            className="border border-gray-300 rounded-full px-5 py-1.5"
+          >
+            <Image src="/media/telegram.png" alt="rame" height={20} width={20} loading="lazy" />{' '}
+          </Link>
+        </div>
       </div>
     </header>
   )

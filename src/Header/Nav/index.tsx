@@ -48,7 +48,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
           })}
           <Link href="/search">
             <span className="sr-only">Search</span>
-            <SearchIcon className="w-5 text-primary" />
+            {/* <SearchIcon className="w-5 text-primary" /> */}
           </Link>
         </div>
       </div>
@@ -63,15 +63,15 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
         {isOpen && (
           <div
             id="dropdown-menu"
-            className="absolute right-0 mt-9 w-48 p-5 bg-[#182385] rounded-md shadow-lg flex flex-col gap-4 sm:rounded-[6px]"
+            className="absolute right-0 mt-9 w-48 p-5  rounded-md shadow-lg flex flex-col gap-4 sm:rounded-[6px]"
           >
             {navItems.map(({ link }, i) => {
               return <CMSLink key={i} {...link} appearance="link" />
             })}
-            <Link href="/search">
+            {/* <Link href="/search">
               <span className="sr-only">Search</span>
               <SearchIcon className="w-5 text-primary" />
-            </Link>
+            </Link> */}
           </div>
         )}
       </div>

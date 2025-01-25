@@ -98,6 +98,7 @@ const tailwindConfig = {
       fontFamily: {
         mono: ['var(--font-geist-mono)'],
         sans: ['var(--font-geist-sans)'],
+        poppins: ['Poppins', 'sans-serif'],
       },
       keyframes: {
         'accordion-down': {
