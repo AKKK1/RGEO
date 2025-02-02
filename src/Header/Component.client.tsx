@@ -36,17 +36,14 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   }, [headerTheme])
 
   return (
-    <header
-      className=" fixed top-0 left-0 right-0  z-20 shadow-md"
-      {...(theme ? { 'data-theme': theme } : {})}
-    >
-      <div className="flex items-center justify-between py-4 px-3 max-w-7xl mx-auto text-lg">
+    <header className=" fixed top-0 left-0 right-0  z-20 bg-black text-white">
+      <div className="flex items-center justify-between py-4 px-3 max-w-7xl mx-auto text-lg text-white">
         <Link className="px-5" href="/">
           <Logo loading="eager" priority="high" className="invert dark:invert-0" />
         </Link>
-
-        <HeaderNav data={data} />
-
+        <div className="flex-grow flex justify-center">
+          <HeaderNav data={data} />
+        </div>
         <div className="flex items-center justify-center gap-3  ">
           <Link href="https://t.me/+iF8aQyyaNvM1YTNi" rel="noopener noreferrer " target="_blank">
             <p>მოგვწერეთ აქ </p>
@@ -56,7 +53,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
             href="https://t.me/+iF8aQyyaNvM1YTNi"
             rel="noopener noreferrer"
             target="_blank"
-            className="border border-gray-300 rounded-full px-5 py-1.5"
+            className="border border-blue-600 rounded-full px-5 py-1.5"
           >
             <Image src="/media/telegram.png" alt="rame" height={20} width={20} loading="lazy" />{' '}
           </Link>

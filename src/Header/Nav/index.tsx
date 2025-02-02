@@ -42,9 +42,9 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
   return (
     <nav className="flex gap-6 justify-center items-center overflow-x-hidden">
       <div className={`hidden lg:flex ${isOpen ? 'block' : 'hidden'}  relative`}>
-        <div className="flex gap-6 justify-center items-center">
+        <div className="flex gap-9 justify-center items-center">
           {navItems.map(({ link }, i) => {
-            return <CMSLink key={i} {...link} appearance="link" />
+            return <CMSLink key={i} {...link} appearance="link" className="text-lg  text-white" />
           })}
           <Link href="/search">
             <span className="sr-only">Search</span>
@@ -58,15 +58,22 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
           onClick={toggleDropdown}
           className="dropdown dropdown-bottom dropdown-end flex flex-row"
         >
-          {isOpen ? <X className="z-10" /> : <Menu />}
+          {isOpen ? <X className="z-10 w-45" /> : <Menu className="z-10 w-45" />}
         </button>
         {isOpen && (
           <div
             id="dropdown-menu"
-            className="absolute right-0 mt-9 w-48 p-5  rounded-md shadow-lg flex flex-col gap-4 sm:rounded-[6px]"
+            className="absolute right-0 mt-9 w-full h-[100vh] p-5 bg-white rounded-md shadow-lg flex flex-col gap-4 sm:rounded-[6px] sm: "
           >
             {navItems.map(({ link }, i) => {
-              return <CMSLink key={i} {...link} appearance="link" />
+              return (
+                <CMSLink
+                  key={i}
+                  {...link}
+                  appearance="link"
+                  className="text-lg font-semibold text-black mt-10"
+                />
+              )
             })}
             {/* <Link href="/search">
               <span className="sr-only">Search</span>

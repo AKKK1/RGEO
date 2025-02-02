@@ -75,7 +75,15 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock],
+              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock,{
+                slug: 'MyNewblock', 
+                fields: [
+                  {
+                  name: 'content',
+                  type: 'richText'
+                }
+              ]
+              },],
               required: true,
               admin: {
                 initCollapsed: true,
