@@ -17,17 +17,37 @@ import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
 import { Poppins } from 'next/font/google'
 
+import localFont from 'next/font/local'
+
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-poppins',
 })
+
+const Helvetica = localFont({
+  src: [
+    {
+      path: '../../../public/fonts/helvetica45Light.ttf',
+      weight: '45',
+      style: 'normal',
+    },
+    {
+      path: '../../../public/fonts/helvetica95BlACK.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+    // დაამატეთ სხვა ვარიანტები საჭიროების მიხედვით
+  ],
+  variable: '--font-helvetica',
+})
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
 
   return (
     <html
-      className={cn(GeistSans.variable, GeistMono.variable, poppins.variable)}
+      className={cn(GeistSans.variable, GeistMono.variable, poppins.variable, Helvetica.variable)}
       lang="en"
       suppressHydrationWarning
     >

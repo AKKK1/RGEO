@@ -15,10 +15,10 @@ export const PostHero: React.FC<{
     populatedAuthors && populatedAuthors.length > 0 && formatAuthors(populatedAuthors) !== ''
 
   return (
-    <div className="relative -mt-[10.4rem] flex items-end">
-      <div className="container z-10 relative lg:grid lg:grid-cols-[1fr_48rem_1fr] text-white pb-8">
-        <div className="col-start-1 col-span-1 md:col-start-2 md:col-span-2">
-          <div className="uppercase text-sm mb-6">
+    <div className="relative -mt-[1.2rem] flex items-end ">
+      <div className="container z-10 relative lg:grid lg:grid-cols-[1fr_48rem_1fr] text-white pb-8 ">
+        <div className="col-start-1 col-span-1 md:col-start-2 md:col-span-2 ">
+          <div className="uppercase text-sm mb-6 ">
             {categories?.map((category, index) => {
               if (typeof category === 'object' && category !== null) {
                 const { title: categoryTitle } = category
@@ -62,7 +62,8 @@ export const PostHero: React.FC<{
           </div>
         </div>
       </div>
-      <div className="min-h-[80vh] select-none">
+
+      {/* <div className="min-h-[80vh] select-none">
         {metaImage && typeof metaImage !== 'string' && (
           <Media
             fill
@@ -73,7 +74,58 @@ export const PostHero: React.FC<{
           />
         )}
         <div className="absolute pointer-events-none left-0 bottom-0 w-full h-1/2 bg-gradient-to-t from-black to-transparent" />
-      </div>
+      </div> */}
     </div>
   )
 }
+
+// import { formatDateTime } from 'src/utilities/formatDateTime'
+// import React from 'react'
+
+// import type { Post } from '@/payload-types'
+
+// import { Media } from '@/components/Media'
+// import { formatAuthors } from '@/utilities/formatAuthors'
+
+// export const PostHero: React.FC<{ post: Post }> = ({ post }) => {
+//   const { categories, meta: { image: metaImage } = {}, populatedAuthors, publishedAt, title } = post
+
+//   const hasAuthors =
+//     populatedAuthors && populatedAuthors.length > 0 && formatAuthors(populatedAuthors) !== ''
+
+//   return (
+//     <div className="container mx-auto px-4 py-8">
+//       {/* Title and Info */}
+//       <div className="flex flex-col md:flex-row items-start gap-6">
+//         {/* Image */}
+//         {metaImage && typeof metaImage !== 'string' && (
+//           <div className="w-full md:w-1/3">
+//             <Media
+//               className="rounded-lg overflow-hidden"
+//               imgClassName="object-cover w-full h-auto"
+//               resource={metaImage}
+//             />
+//           </div>
+//         )}
+//         {/* Text Content */}
+//         <div className="md:w-2/3 flex flex-col gap-4">
+//           {/* Categories */}
+//           {categories?.map((category, index) => (
+//             typeof category === 'object' && category !== null && category.title ? (
+//               <span key={index} className="bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full w-fit">
+//                 {category.title}
+//               </span>
+//             ) : null
+//           ))}
+//           {/* Title */}
+//           <h1 className="text-3xl md:text-4xl font-bold text-gray-900">{title}</h1>
+//           {/* Meta Info */}
+//           <div className="text-gray-600 text-sm flex gap-4">
+//             {hasAuthors && <p>ავტორი: {formatAuthors(populatedAuthors)}</p>}
+//             {publishedAt && <p>გამოქვეყნდა: {formatDateTime(publishedAt)}</p>}
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }

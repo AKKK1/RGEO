@@ -11,6 +11,8 @@ import RichText from '@/components/RichText'
 import defaultImage from 'public/media/des-1.png'
 import Image from 'next/image'
 import { Search } from 'lucide-react'
+import { DatePicker } from '@payloadcms/ui'
+import DatePickerValue from './DatePickerValue'
 
 export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
   const { setHeaderTheme } = useHeaderTheme()
@@ -21,18 +23,19 @@ export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
 
   return (
     <div
-      className="relative -mt-[10.4rem]  height-[50vh] lex items-center justify-center text-white  "
+      className="relative h-[40vh] -mt-[60px] flex items-center justify-center text-white"
       style={{
-        backgroundImage: "url('/media/des.png')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundImage: "url('/assets/des.png')",
+        backgroundSize: 'cover', // სურათი დაიკავებს მთელ არეს, არ დაიჭირებს
+        backgroundPosition: 'center', // სურათი ცენტრში იქნება
+        backgroundRepeat: 'no-repeat', // სურათი არ განმეორდება
       }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
         {' '}
-        <h1 className="text-[90px] font-poppins font-light leading-[120px] mb-[32px] -mt-[12.4rem">
+        <h1 className="text-[90px] font-poppins font-light leading-[120px] mb-[32px] mt-[8.4rem]">
           ყველანი შენს გვერდით
         </h1>
         <div className="max-w-xl mx-auto relative mt-10 ">
@@ -47,7 +50,7 @@ export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
               size={20}
             />
           </div>
-          <button>rame</button>
+          {/* <DatePickerValue /> */}
         </div>
       </div>
 
@@ -67,7 +70,7 @@ export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
           )}
         </div>
       </div>
-      <div className="min-h-[50vh] select-none"></div>
+      <div className="min-h-[45vh] select-none"></div>
     </div>
   )
 }

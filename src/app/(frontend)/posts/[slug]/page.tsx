@@ -14,6 +14,7 @@ import { PostHero } from '@/heros/PostHero'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
+import { ArrowBigLeft, ArrowBigRight } from 'lucide-react'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -50,7 +51,8 @@ export default async function Post({ params: paramsPromise }: Args) {
   if (!post) return <PayloadRedirects url={url} />
 
   return (
-    <article className="pt-16 pb-16 bg-yellow-300">
+    <article className="pt-2 pb-2 bg-[#aa7474]">
+      <ArrowBigLeft className="size-10 ml-40" />
       <PageClient />
 
       {/* Allows redirects for valid pages too */}
@@ -60,12 +62,16 @@ export default async function Post({ params: paramsPromise }: Args) {
 
       <PostHero post={post} />
 
-      <div className="flex flex-col items-center gap-4 pt-8 bg-green-600">
-        <div className="container">
-          <RichText className="max-w-[48rem] mx-auto" data={post.content} enableGutter={false} />
+      <div className="flex flex-col items-center gap-4 pt-8 bg-[#000000]">
+        <div className="container bg-[#000000]">
+          <RichText
+            className="max-w-[55rem] mx-auto font-poppins text-white bg-[#121614]"
+            data={post.content}
+            enableGutter={true}
+          />
           {post.relatedPosts && post.relatedPosts.length > 0 && (
             <RelatedPosts
-              className="mt-12 max-w-[52rem] lg:grid lg:grid-cols-subgrid col-start-1 col-span-4 grid-rows-[2fr]"
+              className="mt-12 max-w-[25rem] lg:grid lg:grid-cols-subgrid col-start-1 col-span-4 grid-rows-[2fr] !text-white bg-gray-200 "
               docs={post.relatedPosts.filter((post) => typeof post === 'object')}
             />
           )}

@@ -55,15 +55,15 @@ export const CollectionArchive: React.FC<Props> = (props) => {
   const limitedPosts = posts.slice(0, 8)
 
   return (
-    <div className={cn('container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8')}>
+    <div className={cn('container lg:max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 ')}>
       <div className="w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
           {limitedPosts.map((result, index) => {
             if (typeof result === 'object' && result !== null) {
               return (
-                <div key={index} className="text-white w-full">
+                <div key={index} className="text-white w-full font-helvetica">
                   <Card
-                    className="h-full text-white w-full"
+                    className="h-full text-black w-full shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out group/color"
                     doc={result}
                     relationTo="posts"
                     showCategories

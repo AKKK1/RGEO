@@ -6,8 +6,9 @@ import { CalendarIcon } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import { cn } from '@/lib/utils'
-import { toast } from '@/components/hooks/use-toast'
+import { cn } from '../../utilities/cn'
+
+import { toast } from '@/components/ui/use-toast'
 import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'
 import {
@@ -27,7 +28,7 @@ const FormSchema = z.object({
   }),
 })
 
-export function CalendarForm() {
+export function DatePickerForm() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   })
@@ -87,3 +88,5 @@ export function CalendarForm() {
     </Form>
   )
 }
+
+export default DatePickerForm

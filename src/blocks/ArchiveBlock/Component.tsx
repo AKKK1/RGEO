@@ -56,11 +56,11 @@ export const ArchiveBlock: React.FC<
   return (
     <div className="my-16 bg-black text-white bg-black" id={`block-${id}`}>
       {introContent && (
-        <div className="container mx-auto px-4 mb-16">
+        <div className="container  lg:w-973px mx-auto px-4 mb-16 bg-">
           <div className="flex items-center justify-center gap-3">
             <Cctv className="w-10 h-10" />
             <RichText
-              className="!text-white [&_*]:!text-white  max-w-[48rem]"
+              className="!text-white [&_*]:!text-white font-helvetica  max-w-[48rem]"
               data={introContent}
               enableGutter={false}
             />

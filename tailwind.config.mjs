@@ -11,7 +11,7 @@ const tailwindConfig = {
     './src/**/*.{ts,tsx}',
   ],
   darkMode: ['selector', '[data-theme="dark"]'],
-  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography'),    daisyui,
+  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography'),    daisyui,[require('tailwindcss-motion')], 
   ],
   prefix: '',
   safelist: [
@@ -99,6 +99,7 @@ const tailwindConfig = {
         mono: ['var(--font-geist-mono)'],
         sans: ['var(--font-geist-sans)'],
         poppins: ['Poppins', 'sans-serif'],
+        helvetica: ['helvetica', 'sans-serif'],
       },
       keyframes: {
         'accordion-down': {

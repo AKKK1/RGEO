@@ -44,7 +44,10 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
         <div className="flex-grow flex justify-center">
           <HeaderNav data={data} />
         </div>
-        <div className="flex items-center justify-center gap-3  ">
+        <div
+          className="flex items-center justify-center gap-3 animate-bounce animate-infinite 
+"
+        >
           <Link href="https://t.me/+iF8aQyyaNvM1YTNi" rel="noopener noreferrer " target="_blank">
             <p>მოგვწერეთ აქ </p>
           </Link>
