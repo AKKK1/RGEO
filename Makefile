@@ -25,7 +25,8 @@ logs:
 	docker compose logs -f
 
 .PHONY:
-reload: stop down build start logs
+reload: stop down build start
+setup: stop down build start db-restore
 
 
 # -----------------#
@@ -35,3 +36,15 @@ reload: stop down build start logs
 .PHONY:
 shell:
 	docker exec -it riot-app bash
+
+.PHONY:
+mongo-shell:
+	docker exec -it riot-mongo bash
+
+.PHONY:
+db-dump:
+	docker exec -it -u 1000:1000 riot-mongo bash -c '/backup/generate.sh'
+
+.PHONY:
+db-restore:
+	docker exec -it -u 1000:1000 riot-mongo bash -c '/backup/restore.sh'
