@@ -28,12 +28,12 @@ const poppins = Poppins({
 const Helvetica = localFont({
   src: [
     {
-      path: '../../../public/fonts/helvetica45Light.ttf',
+      path: '/riot-georgia/src/fonts/helvetica45Light.ttf',
       weight: '45',
       style: 'normal',
     },
     {
-      path: '../../../public/fonts/helvetica95BlACK.ttf',
+      path: '/riot-georgia/src/fonts/helvetica95Light.ttf',
       weight: '700',
       style: 'normal',
     },
