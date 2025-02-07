@@ -35,7 +35,7 @@ export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
         {' '}
-        <h1 className="text-[90px] font-poppins font-light leading-[120px] mb-[32px] mt-[8.4rem]">
+        <h1 className="text-[90px] font-poppins font-light leading-[120px] mb-[32px] mt-[8.4rem] ">
           ყველანი შენს გვერდით
         </h1>
         <div className="max-w-xl mx-auto relative mt-10 ">
