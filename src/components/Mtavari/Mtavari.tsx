@@ -11,7 +11,7 @@ import RichText from '@/components/RichText'
 import defaultImage from 'public/media/des-1.png'
 import Image from 'next/image'
 import { Search } from 'lucide-react'
-import { DatePicker } from '@payloadcms/ui'
+import { Button, DatePicker } from '@payloadcms/ui'
 import DatePickerValue from './DatePickerValue'
 
 export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
@@ -47,20 +47,7 @@ export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
         >
           ყველანი შენს გვერდით
         </h1>
-        <div className="max-w-xl mx-auto relative mt-10 ">
-          <div className="relative ">
-            <input
-              type="text"
-              placeholder="ძიება"
-              className="w-[614px] pl-10 pr-4 py-2 rounded-full height-[44px]  bg-white bg-opacity-20 text-white placeholder-white border-2 focus:outline-none focus:border-blue-100"
-            />
-            <Search
-              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white"
-              size={20}
-            />
-          </div>
-          {/* <DatePickerValue /> */}
-        </div>
+        <Button>მოძებნე</Button>
       </div>
 
       <div className="container mb-8 z-10 relative flex items-center justify-center bg-green-600">
