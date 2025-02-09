@@ -10,9 +10,10 @@ import RichText from '@/components/RichText'
 // import des from '@/media/des-1.png'
 import defaultImage from 'public/media/des-1.png'
 import Image from 'next/image'
-import { Link, Search } from 'lucide-react'
+import { Search } from 'lucide-react'
 import { Button, DatePicker } from '@payloadcms/ui'
 import DatePickerValue from './DatePickerValue'
+import Link from 'next/link'
 
 export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
   const { setHeaderTheme } = useHeaderTheme()
@@ -38,7 +39,7 @@ export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
         <h1
           className="
   text-4xl sm:text-5xl md:text-6xl lg:text-[90px] 
-  font-poppins font-light 
+  font-poppins font-light tracking-wide  
   leading-tight sm:leading-tight md:leading-tight lg:leading-[120px] 
   mb-4 sm:mb-6 md:mb-8 lg:mb-[32px] 
   mt-16 sm:mt-20 md:mt-24 lg:mt-[8.4rem] 
@@ -47,7 +48,12 @@ export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
         >
           ყველანი შენს გვერდით
         </h1>
-        <Link href="/posts">დანაშაულებზე სამხილები </Link>
+        <Link
+          href="/posts"
+          className="border border-black rounded-full p-3 mt-3 hover:bg-black transition-colors "
+        >
+          ყველა დანაშაული
+        </Link>
       </div>
 
       <div className="container mb-8 z-10 relative flex items-center justify-center bg-green-600">
