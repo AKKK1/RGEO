@@ -45,18 +45,18 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
           <HeaderNav data={data} />
         </div>
         <div
-          className="flex items-center justify-center gap-3 sm:text-[10px] sm:gap-2 lg:text-lg md:text-lg
+          className="flex items-center justify-center gap-3 sm:text-[10px] sm:[px-3] sm:gap-2 lg:text-lg md:text-lg
 "
         >
           <Link href="https://t.me/+iF8aQyyaNvM1YTNi" rel="noopener noreferrer " target="_blank">
-            <p>მოგვწერეთ აქ </p>
+            <p className="">მოგვწერეთ აქ </p>
           </Link>
 
           <Link
             href="https://t.me/+iF8aQyyaNvM1YTNi"
             rel="noopener noreferrer"
             target="_blank"
-            className="border border-blue-600 rounded-full px-5 py-1.5"
+            className="border border-blue-600 rounded-full px-5 py-1.5 sm:px-[3]"
           >
             <Image src="/assets/Telegram.png" alt="rame" height={20} width={20} loading="lazy" />{' '}
           </Link>
