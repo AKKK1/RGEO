@@ -18,7 +18,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
 
   return (
     <div>
-      <Mtavari />
+      <Mtavari type="highImpact" />
     </div>
 
     // <div
