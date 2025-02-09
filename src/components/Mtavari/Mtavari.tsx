@@ -10,7 +10,7 @@ import RichText from '@/components/RichText'
 // import des from '@/media/des-1.png'
 import defaultImage from 'public/media/des-1.png'
 import Image from 'next/image'
-import { Search } from 'lucide-react'
+import { Link, Search } from 'lucide-react'
 import { Button, DatePicker } from '@payloadcms/ui'
 import DatePickerValue from './DatePickerValue'
 
@@ -47,7 +47,7 @@ export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
         >
           ყველანი შენს გვერდით
         </h1>
-        <Button>მოძებნე</Button>
+        <Link href="/posts">დანაშაულებზე სამხილები </Link>
       </div>
 
       <div className="container mb-8 z-10 relative flex items-center justify-center bg-green-600">
