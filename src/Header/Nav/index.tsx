@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import type { Header as HeaderType } from '@/payload-types'
 import { CMSLink } from '@/components/Link'
 import Link from 'next/link'
-import { Menu, SearchIcon, X } from 'lucide-react'
+import { Menu, SearchIcon, X, Home, Info, Mail, Calendar } from 'lucide-react'
 
 export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
   const navItems = data?.navItems || []
@@ -12,6 +12,14 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
   const toggleDropdown = () => setIsOpen(!isOpen)
 
   const closeDropdown = () => setIsOpen(false)
+
+  const icons = {
+    home: Home,
+    info: Info,
+    contact: Mail,
+    events: Calendar,
+    // დაამატეთ სხვა აიკონები საჭიროებისამებრ
+  }
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -63,7 +71,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
         {isOpen && (
           <div
             id="dropdown-menu"
-            className="absolute right-0 mt-9 w-full h-[100vh] p-5 bg-white rounded-md shadow-lg flex flex-col gap-4 sm:rounded-[6px] sm: "
+            className="absolute right-0 mt-9 w-full h-[50vh] p-5 bg-white rounded-md shadow-lg flex flex-col gap-4 sm:rounded-[6px] sm: "
           >
             {navItems.map(({ link }, i) => {
               return (

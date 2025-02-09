@@ -27,9 +27,10 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
       slug: true,
       categories: true,
       meta: true,
+      date: true,
     },
     // pagination: false reduces overhead if you don't need totalDocs
-    pagination: false,
+    pagination: true,
     ...(query
       ? {
           where: {
@@ -65,7 +66,7 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
       <PageClient />
       <div className="container mb-16">
         <div className="prose dark:prose-invert max-w-none text-center">
-          <h1 className="mb-8 lg:mb-16">Search</h1>
+          <h1 className="mb-8 lg:mb-16 text-white">მოძებნე</h1>
 
           <div className="max-w-[50rem] mx-auto">
             <Search />
@@ -76,7 +77,7 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
       {posts.totalDocs > 0 ? (
         <CollectionArchive posts={posts.docs as CardPostData[]} />
       ) : (
-        <div className="container">No results found.</div>
+        <div className="container">არაფერი მოიძებნა.</div>
       )}
     </div>
   )
@@ -84,6 +85,6 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
 
 export function generateMetadata(): Metadata {
   return {
-    title: `Payload Website Template Search`,
+    title: `Evidence Georgia Search`,
   }
 }

@@ -6,6 +6,8 @@ import {
   ParagraphFeature,
   lexicalEditor,
   UnderlineFeature,
+  AlignFeature,
+ 
 } from '@payloadcms/richtext-lexical'
 
 export const defaultLexical: Config['editor'] = lexicalEditor({
@@ -15,6 +17,8 @@ export const defaultLexical: Config['editor'] = lexicalEditor({
       UnderlineFeature(),
       BoldFeature(),
       ItalicFeature(),
+      AlignFeature(),
+      
       LinkFeature({
         enabledCollections: ['pages', 'posts'],
         fields: ({ defaultFields }) => {
@@ -22,6 +26,7 @@ export const defaultLexical: Config['editor'] = lexicalEditor({
             if ('name' in field && field.name === 'url') return false
             return true
           })
+          
 
           return [
             ...defaultFieldsWithoutUrl,

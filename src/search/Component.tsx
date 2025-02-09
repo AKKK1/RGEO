@@ -22,15 +22,16 @@ export const Search: React.FC = () => {
           e.preventDefault()
         }}
       >
-        <Label htmlFor="search" className="sr-only">
+        <Label htmlFor="search" className="sr-only text-white">
           ძიება
         </Label>
         <Input
+          className="text-white"
           id="search"
           onChange={(event) => {
             setValue(event.target.value)
           }}
-          placeholder="ძიება"
+          placeholder="ძიება..."
         />
         <button type="submit" className="sr-only">
           submit

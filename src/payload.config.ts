@@ -72,24 +72,24 @@ export default buildConfig({
   globals: [Header, Footer],
   plugins: [
     ...plugins,
-    // storage-adapter-placeholder
+   
 
-    // payloadCloudPlugin(),
-    // s3Storage({
-    //   collections: {
-    //     files: true
-    //   },
-    //   bucket: process.env.S3_BUCKET_NAME || "",
-    //   config: {
-    //     forcePathStyle: false,
-    //     region: process.env.S3_REGION || "",
-    //     endpoint: process.env.S3_ENDPOINT || "",
-    //     credentials: {
-    //       accessKeyId: process.env.S3_ACCESS_KEY || "",
-    //       secretAccessKey: process.env.S3_SECRET_KEY || ""
-    //     }
-    //   }
-    // })
+    payloadCloudPlugin(),
+    s3Storage({
+      collections: {
+        media: true
+      },
+      bucket: process.env.S3_BUCKET_NAME || "",
+      config: {
+        forcePathStyle: false,
+        region: process.env.S3_REGION || "",
+        endpoint: process.env.S3_ENDPOINT || "",
+        credentials: {
+          accessKeyId: process.env.S3_ACCESS_KEY || "",
+          secretAccessKey: process.env.S3_SECRET_KEY || ""
+        }
+      }
+    })
   ],
   secret: process.env.PAYLOAD_SECRET,
   sharp,

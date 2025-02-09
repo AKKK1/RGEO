@@ -35,7 +35,16 @@ export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
         {' '}
-        <h1 className="text-[90px] font-poppins font-light leading-[120px] mb-[32px] mt-[8.4rem] ">
+        <h1
+          className="
+  text-4xl sm:text-5xl md:text-6xl lg:text-[90px] 
+  font-poppins font-light 
+  leading-tight sm:leading-tight md:leading-tight lg:leading-[120px] 
+  mb-4 sm:mb-6 md:mb-8 lg:mb-[32px] 
+  mt-16 sm:mt-20 md:mt-24 lg:mt-[8.4rem] 
+  px-4 sm:px-6 md:px-8
+"
+        >
           ყველანი შენს გვერდით
         </h1>
         <div className="max-w-xl mx-auto relative mt-10 ">
@@ -70,7 +79,6 @@ export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
           )}
         </div>
       </div>
-      <div className="min-h-[45vh] select-none"></div>
     </div>
   )
 }
