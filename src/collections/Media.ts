@@ -43,7 +43,7 @@ export const Media: CollectionConfig = {
     disableLocalStorage: true,
     adminThumbnail: ({ doc }) => {
       if (doc?.filename) {
-        return `https://${process.env.S3_BUCKET_NAME}.s3.${process.env.S3_REGION}.${doc.filename}`
+        return `https://${process.env.S3_BUCKET_NAME}.${process.env.S3_REGION}.${doc.filename}`
       }
       return null
     },
