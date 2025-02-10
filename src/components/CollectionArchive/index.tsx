@@ -57,7 +57,7 @@ export const CollectionArchive: React.FC<Props> = (props) => {
   return (
     <div className={cn('container lg:max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 ')}>
       <div className="w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {limitedPosts.map((result, index) => {
             if (typeof result === 'object' && result !== null) {
               return (
@@ -71,7 +71,6 @@ export const CollectionArchive: React.FC<Props> = (props) => {
                 </div>
               )
             }
-
             return null
           })}
         </div>
