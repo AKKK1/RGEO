@@ -1,5 +1,3 @@
-ბოდიში ამ შეცდომისთვის. პრობლემა არის იმაში, რომ Next.js-ის უახლეს ვერსიებში searchParams არის Promise. მოდით, შევცვალოთ კოდი ამის გათვალისწინებით:
-ფაილი: c:\Users\ac3ak\OneDrive\Desktop\RiotGeorgia\riot-georgia\src\app\(frontend)\search\page.tsx
 import type { Metadata } from 'next/types'
 import { CollectionArchive } from '@/components/CollectionArchive'
 import configPromise from '@payload-config'
