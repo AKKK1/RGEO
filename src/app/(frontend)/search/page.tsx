@@ -1,4 +1,4 @@
-import type { Metadata } from 'next/types'
+import type { Metadata } from 'next'
 import { CollectionArchive } from '@/components/CollectionArchive'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
@@ -8,12 +8,15 @@ import PageClient from './page.client'
 import { CardPostData } from '@/components/Card'
 import Link from 'next/link'
 
-type Args = {
-  searchParams: {
-    q?: string
-    date?: string
-    category?: string
-  }
+type SearchParams = {
+  q?: string
+  date?: string
+  category?: string
+}
+
+type PageProps = {
+  params: { slug: string }
+  searchParams: SearchParams
 }
 
 // SearchFilters კომპონენტის განსაზღვრა
@@ -34,11 +37,11 @@ const SearchFilters: React.FC = () => {
   )
 }
 
-export default async function Page({ searchParams }: Args) {
+export default async function Page({ searchParams }: PageProps) {
   const { q: query, date, category } = searchParams
   const payload = await getPayload({ config: configPromise })
 
-  const where: any = {}
+  const where: Record<string, any> = {}
 
   if (query) {
     where.or = [
