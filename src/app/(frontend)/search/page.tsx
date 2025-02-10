@@ -14,12 +14,7 @@ type SearchParams = {
   category?: string
 }
 
-type PageProps = {
-  params: { slug: string }
-  searchParams: SearchParams
-}
-
-export default async function Page({ searchParams }: PageProps) {
+export default async function Page({ searchParams }: { searchParams: SearchParams }) {
   const { q: query, date, category } = searchParams
   const payload = await getPayload({ config: configPromise })
 
