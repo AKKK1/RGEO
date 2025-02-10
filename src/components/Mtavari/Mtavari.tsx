@@ -49,10 +49,10 @@ export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
           ყველანი შენს გვერდით
         </h1>
         <Link
-          href="/posts"
-          className="border border-black rounded-full p-3 mt-3 hover:bg-black transition-colors "
+          href="/search"
+          className="border border-white rounded-full p-3 mt-3 hover:bg-black transition-colors "
         >
-          ყველა დანაშაული
+          მოძებნე დანაშაულის ფაქტები: სახელით, დროით.
         </Link>
       </div>
 
