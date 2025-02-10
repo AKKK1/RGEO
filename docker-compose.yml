@@ -1,31 +1,56 @@
-version: '3'
-
 services:
   payload:
-    image: node:18-alpine
+    build: .
+    container_name: riot-app
     ports:
       - '3000:3000'
     volumes:
       - .:/home/node/app
+      - next:/home/node/app/.next
       - node_modules:/home/node/app/node_modules
-    working_dir: /home/node/app/
-    command: sh -c "yarn install && yarn dev"
-    depends_on:
-      - mongo
     env_file:
       - .env
-
+    networks:
+      - riot-georgia
+    depends_on:
+      - mongo
   mongo:
     image: mongo:latest
+    container_name: riot-mongo
     ports:
-      - '27017:27017'
-    command:
-      - --storageEngine=wiredTiger
+      - '3002:27017'
     volumes:
       - data:/data/db
-    logging:
-      driver: none
+      - ./database:/backup
+    networks:
+      - riot-georgia
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user1
+      MONGO_INITDB_ROOT_PASSWORD: pass1
+      MONGO_DATABASE: RiotGeorgia
+    env_file:
+      - ./database/.env
+  express:
+    image: mongo-express
+    container_name: riot-express
+    ports:
+      - '3001:8081'
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: user1
+      ME_CONFIG_MONGODB_ADMINPASSWORD: pass1
+      ME_CONFIG_MONGODB_URL: mongodb://user1:pass1@mongo:27017/
+      ME_CONFIG_BASICAUTH: false
+    networks:
+      - riot-georgia
+    depends_on:
+      - mongo
+
+networks:
+  riot-georgia:
+    name: riot-georgia
+    driver: bridge
 
 volumes:
   data:
+  next:
   node_modules:
