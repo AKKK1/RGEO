@@ -97,7 +97,7 @@ export default async function Page({ searchParams }: PageProps) {
       {posts.totalDocs > 0 ? (
         <CollectionArchive posts={posts.docs as unknown as CardPostData[]} />
       ) : (
-        <div className="container">არაფერი მოიძებნა.</div>
+        <div className="container">არაფერი მოიძებნა x.</div>
       )}
     </div>
   )
