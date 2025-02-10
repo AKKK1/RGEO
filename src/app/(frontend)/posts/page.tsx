@@ -33,6 +33,7 @@ export default async function Page() {
       <PageClient />
       <div className="container mb-16">
         <div className="prose dark:prose-invert max-w-none">
+          <p className="text-white">საქართველოში მიმდინარე მოვლენები, სცდება ყველა ზღვარს</p>
           <h1>დანაშაულის ფაქტები</h1>
         </div>
       </div>
