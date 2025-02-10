@@ -10,10 +10,10 @@ import RichText from '@/components/RichText'
 // import des from '@/media/des-1.png'
 import defaultImage from 'public/media/des-1.png'
 import Image from 'next/image'
-import { Search } from 'lucide-react'
 import { Button, DatePicker } from '@payloadcms/ui'
 import DatePickerValue from './DatePickerValue'
 import Link from 'next/link'
+import { Search } from 'lucide-react'
 
 export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
   const { setHeaderTheme } = useHeaderTheme()
@@ -24,7 +24,7 @@ export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
 
   return (
     <div
-      className="relative h-[40vh] -mt-[60px] flex items-center justify-center text-white"
+      className="relative h-[40vh]  -mt-[60px] flex items-center justify-center text-white"
       style={{
         backgroundImage: "url('/assets/des.png')",
         backgroundSize: 'cover', // სურათი დაიკავებს მთელ არეს, არ დაიჭირებს
@@ -35,14 +35,23 @@ export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
-        {' '}
+        <div
+          className="absolute inset-0  opacity-10 w-full"
+          style={{
+            backgroundImage: "url('/assets/euge.jpg')",
+            backgroundSize: 'contain',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        ></div>
+
         <h1
-          className="
-  text-4xl sm:text-5xl md:text-6xl lg:text-[90px] 
+          className=" z-10
+  text-5xl sm:text-6xl md:text-6xl lg:text-[90px] 
   font-poppins font-light tracking-wide  
   leading-tight sm:leading-tight md:leading-tight lg:leading-[120px] 
-  mb-4 sm:mb-6 md:mb-8 lg:mb-[32px] 
-  mt-16 sm:mt-20 md:mt-24 lg:mt-[8.4rem] 
+  mb-4 sm:mb-3 md:mb-4 lg:mb-[32px] 
+  mt-10 sm:mt-20 md:mt-14 lg:mt-[6.4rem] 
   px-4 sm:px-6 md:px-8
 "
         >
@@ -50,9 +59,9 @@ export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
         </h1>
         <Link
           href="/search"
-          className="border border-white rounded-full p-3 mt-3 hover:bg-black transition-colors "
+          className="border z-10 border-white rounded-full p-3 px-5 mt-3 bg-black hover:bg-blue-900 transition-colors "
         >
-          მოძებნე დანაშაულის ფაქტები: სახელით, დროით.
+          მოძებნე მოვლენები: სახელით და დროით.
         </Link>
       </div>
 
