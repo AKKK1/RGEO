@@ -15,14 +15,30 @@ type SearchParams = {
 }
 
 interface PageProps {
-  searchParams: Promise<SearchParams>
+  searchParams: SearchParams
+}
+
+type WhereClause = {
+  or?: Array<{
+    [key: string]: {
+      like?: string
+      equals?: string
+    }
+  }>
+  and?: Array<{
+    [key: string]: {
+      greater_than_equal?: string
+      less_than?: string
+      equals?: string
+    }
+  }>
 }
 
 export default async function Page({ searchParams }: PageProps) {
-  const { q: query, date, category } = await searchParams
+  const { q: query, date, category } = searchParams
   const payload = await getPayload({ config: configPromise })
 
-  const where: Record<string, unknown> = {}
+  const where: WhereClause = {}
 
   if (query) {
     where.or = [
