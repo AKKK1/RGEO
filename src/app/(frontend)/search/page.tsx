@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata } from 'next/types'
 import { CollectionArchive } from '@/components/CollectionArchive'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
@@ -6,7 +6,7 @@ import React from 'react'
 import { Search } from '@/search/Component'
 import PageClient from './page.client'
 import { CardPostData } from '@/components/Card'
-import Link from 'next/link'
+import SearchFilters from './SearchFilters'
 
 type SearchParams = {
   q?: string
@@ -14,30 +14,7 @@ type SearchParams = {
   category?: string
 }
 
-type PageProps = {
-  params: { slug: string }
-  searchParams: SearchParams
-}
-
-// SearchFilters კომპონენტის განსაზღვრა
-const SearchFilters: React.FC = () => {
-  return (
-    <div className="flex space-x-4">
-      <Link href="/search?date=today" className="text-blue-500 hover:underline">
-        დღევანდელი
-      </Link>
-      <Link href="/search?date=this-week" className="text-blue-500 hover:underline">
-        ამ კვირის
-      </Link>
-      <Link href="/search?date=this-month" className="text-blue-500 hover:underline">
-        ამ თვის
-      </Link>
-      {/* შეგიძლიათ დაამატოთ მეტი ფილტრი საჭიროების მიხედვით */}
-    </div>
-  )
-}
-
-export default async function Page({ searchParams }: PageProps) {
+export default async function Page({ searchParams }: { searchParams: SearchParams }) {
   const { q: query, date, category } = searchParams
   const payload = await getPayload({ config: configPromise })
 
