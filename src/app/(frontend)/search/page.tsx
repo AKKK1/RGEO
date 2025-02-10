@@ -1,3 +1,5 @@
+ბოდიში ამ შეცდომისთვის. პრობლემა არის იმაში, რომ Next.js-ის უახლეს ვერსიებში searchParams არის Promise. მოდით, შევცვალოთ კოდი ამის გათვალისწინებით:
+ფაილი: c:\Users\ac3ak\OneDrive\Desktop\RiotGeorgia\riot-georgia\src\app\(frontend)\search\page.tsx
 import type { Metadata } from 'next/types'
 import { CollectionArchive } from '@/components/CollectionArchive'
 import configPromise from '@payload-config'
@@ -15,7 +17,7 @@ type SearchParams = {
 }
 
 interface PageProps {
-  searchParams: SearchParams
+  searchParams: Promise<SearchParams>
 }
 
 type WhereClause = {
@@ -35,7 +37,7 @@ type WhereClause = {
 }
 
 export default async function Page({ searchParams }: PageProps) {
-  const { q: query, date, category } = searchParams
+  const { q: query, date, category } = await searchParams
   const payload = await getPayload({ config: configPromise })
 
   const where: WhereClause = {}
