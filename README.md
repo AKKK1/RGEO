@@ -1,5 +1,4 @@
-Evidence Georgia - Website  - Created by AC3AK1
-
+# Evidence Georgia - Website  - Created by AC3AK1
 
 
 - [Authentication](#users-authentication)
@@ -18,6 +17,44 @@ Evidence Georgia - Website  - Created by AC3AK1
 1. `cd my-project && cp .env.example .env` to copy the example environment variables
 1. `pnpm install && pnpm dev` to install dependencies and start the dev server
 1. open `http://localhost:3000` to open the app in your browser
+
+## Docker
+
+Alternatively, you can use Docker for development.
+
+### Project Requirements
+* Git
+* Docker
+* Docker Compose
+* Make (Linux)
+
+
+### Project Setup
+Use this "Make" commands to work with containers:
+```bash
+make setup  # Initialize the containers and populate the database with the default dump.
+make rebuild  # Delete and rebuild the containers, keeping the database intact.
+
+make start  # Start all containers.
+make stop  # Stop all containers.
+
+make app-shell  # Open shell into the app container as root.
+make app-shell-node  # Open shell as node user.
+make mongo-shell  # Open shell into the database container as root.
+
+make db-dump  # Creates local database dump form the local container
+make db-restore  # Restores the database dump into a local container
+make db-download  # Downloads remote database and loads into a local container.
+# Attention: The default user will be overwritten!
+```
+
+Website: [localhost:3000](http://localhost:3000)<br>
+Admin: [localhost:3000/admin](http://localhost:3000/admin)<br>
+Default credentials for admin: `admin@admin.com:1234` (Only if you loaded provided dump into the database).
+
+
+-----------------
+
 
 That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
 
