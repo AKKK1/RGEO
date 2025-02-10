@@ -14,11 +14,15 @@ type SearchParams = {
   category?: string
 }
 
-export default async function Page({ searchParams }: { searchParams: SearchParams }) {
-  const { q: query, date, category } = searchParams
+interface PageProps {
+  searchParams: Promise<SearchParams>
+}
+
+export default async function Page({ searchParams }: PageProps) {
+  const { q: query, date, category } = await searchParams
   const payload = await getPayload({ config: configPromise })
 
-  const where: Record<string, any> = {}
+  const where: Record<string, unknown> = {}
 
   if (query) {
     where.or = [
