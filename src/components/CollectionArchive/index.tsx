@@ -52,7 +52,7 @@ export const CollectionArchive: React.FC<Props> = (props) => {
   const { posts } = props
 
   // ლიმიტი 8 პოსტამდე (4 სვეტი * 2 რიგი)
-  const limitedPosts = posts.slice(0, 8)
+  const limitedPosts = posts.slice(0, 64)
 
   return (
     <div className={cn('container lg:max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 ')}>
