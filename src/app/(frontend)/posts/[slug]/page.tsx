@@ -67,7 +67,7 @@ export default async function Post({ params: paramsPromise }: Args) {
       <div className="flex flex-col items-center gap-4 pt-8 bg-[#000000]">
         <div className="container bg-[#000000]">
           <RichText
-            className="max-w-[55rem] mx-auto font-poppins text-white bg-[#121614]"
+            className="max-w-[55rem] mx-auto font-poppins text-white bg-[#000000]"
             data={post.content}
             enableGutter={true}
           />
