@@ -52,7 +52,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       suppressHydrationWarning
     >
       <head>
-        <InitTheme />
+        {/* <InitTheme /> */}
         <link href="/logo1.svg" rel="icon" sizes="32x32" />
         <link href="/logo1.svg" rel="icon" type="image/svg+xml" />
       </head>
@@ -79,6 +79,6 @@ export const metadata: Metadata = {
   openGraph: mergeOpenGraph(),
   twitter: {
     card: 'summary_large_image',
-    creator: '@payloadcms',
+    creator: '@AC3AK1',
   },
 }

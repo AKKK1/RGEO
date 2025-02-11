@@ -35,16 +35,6 @@ export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
-        <div
-          className="absolute inset-0  opacity-10 w-full"
-          style={{
-            backgroundImage: "url('/assets/euge.jpg')",
-            backgroundSize: 'contain',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
-        ></div>
-
         <h1
           className=" z-10
   text-5xl sm:text-6xl md:text-6xl lg:text-[90px] 
