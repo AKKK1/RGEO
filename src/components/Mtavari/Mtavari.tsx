@@ -49,9 +49,9 @@ export const Mtavari: React.FC<Page['hero']> = ({ links, media, richText }) => {
         </h1>
         <Link
           href="/search"
-          className="border z-10 border-white rounded-full p-3 px-5 mt-3 bg-black hover:bg-blue-900 transition-colors "
+          className="border z-10 border-white rounded-full flex gap-3asd p-3 px-5 mt-3 bg-black hover:bg-blue-900 transition-colors "
         >
-          მოძებნე მოვლენები: სახელით და დროით.
+          მოძებნე მოვლენები: სახელით და დროით. <Search size={24} />
         </Link>
       </div>
 
