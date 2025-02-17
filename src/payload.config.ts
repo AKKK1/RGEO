@@ -21,6 +21,8 @@ import { s3Storage } from '@payloadcms/storage-s3'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { Form } from 'react-hook-form'
 import { SliderInfo } from './collections/SliderInfo'
+import { Videos } from './collections/Videos'
+import { Profiles } from './collections/Profiles'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -67,7 +69,7 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
-  collections: [Posts, Pages, Media, Categories, Users, SliderInfo],
+  collections: [Posts,Videos, Pages,Profiles, Media, Categories, Users, ],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [

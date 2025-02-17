@@ -17,6 +17,9 @@ import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { populateAuthors } from './hooks/populateAuthors'
 import { revalidateDelete, revalidatePost } from './hooks/revalidatePost'
+import { Profiles } from '../Profiles'
+
+
 
 import {
   MetaDescriptionField,
@@ -126,6 +129,15 @@ export const Posts: CollectionConfig<'posts'> = {
               },
               hasMany: true,
               relationTo: 'categories',
+            },
+            {
+              name: 'profiles',
+              type: 'relationship',
+              admin: {
+                position: 'sidebar',
+              },
+              hasMany: true,
+              relationTo: 'Profiles', // Assuming 'profiles' is the slug for your Profiles collection
             },
           ],
           label: 'Meta',

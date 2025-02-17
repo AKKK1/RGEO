@@ -52,25 +52,29 @@ export default async function Post({ params: paramsPromise }: Args) {
 
   return (
     <article className="pt-2 pb-2 ">
-      {/* <ArrowBigLeft className="size-10 ml-40" /> */}
+      <ArrowBigLeft className="size-10 ml-40 absolute mt-5" />
       <PageClient />
 
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
 
       {draft && <LivePreviewListener />}
+      <p>Profiles</p>
 
       <div className="pt-20 sm:pt-20 md:pt-24 lg:pt-0">
         <PostHero post={post} />
       </div>
 
-      <div className="flex flex-col items-center gap-4 pt-8 bg-[#000000]">
+      <div className="flex flex-col items-center gap-4 pt-6 bg-[#000000]">
         <div className="container bg-[#000000]">
+          <p>posthero</p>
+
           <RichText
             className="max-w-[55rem] mx-auto font-poppins text-white bg-[#000000]"
             data={post.content}
             enableGutter={true}
           />
+
           {post.relatedPosts && post.relatedPosts.length > 0 && (
             <RelatedPosts
               className="mt-12 max-w-[25rem] lg:grid lg:grid-cols-subgrid col-start-1 col-span-4 grid-rows-[2fr] !text-white bg-gray-200 "

@@ -56,7 +56,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
             href="https://t.me/+iF8aQyyaNvM1YTNi"
             rel="noopener noreferrer"
             target="_blank"
-            className="border border-blue-600 rounded-full px-4 py-1.5 sm:px-[3]"
+            className="border border-blue-600 rounded-full px-4 py-1.5 sm:px-[3] lg:px-[4]"
           >
             <Image src="/assets/Telegram.png" alt="rame" height={20} width={20} loading="lazy" />{' '}
           </Link>
