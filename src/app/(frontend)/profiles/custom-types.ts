@@ -7,5 +7,5 @@ export interface Post extends PayloadPost {
 }
 
 export function isProfileObject(profile: string | Profile): profile is Profile {
-  return typeof profile === 'object' && profile !== null && 'id' in profile
-}
+    return typeof profile === 'object' && profile !== null && 'id' in profile
+  }
