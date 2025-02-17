@@ -2,10 +2,11 @@ import React from 'react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Profile, Post } from '@/payload-types'
-import { fetchProfilesWithPosts } from './fetchProfilesWithPosts'
+// import { fetchProfilesWithPosts } from './fetchProfilesWithPosts'
 
 export default async function Profiles() {
-  const profilesWithPosts = (await fetchProfilesWithPosts()) || []
+  const profilesWithPosts = []
+  // = (await fetchProfilesWithPosts()) || []
 
   if (!profilesWithPosts || profilesWithPosts.length === 0) {
     return notFound()
