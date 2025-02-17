@@ -2,7 +2,7 @@ import { formatDateTime } from 'src/utilities/formatDateTime'
 import React from 'react'
 import Link from 'next/link'
 
-import type { Post } from '@/payload-types'
+import { Post, Profile, isProfileObject } from '../../app/(frontend)/profiles/custom-types'
 
 import { Media } from '@/components/Media'
 import { formatAuthors } from '@/utilities/formatAuthors'
@@ -72,17 +72,22 @@ export const PostHero: React.FC<{
           {/* Add Profiles section */}
           {profiles && profiles.length > 0 && (
             <div className="mt-6">
-              <h2 className="text-xl font-semibold mb-2">Profiles:</h2>
+              <h2 className="text-xl font-semibold mb-2">პროფილები:</h2>
               <div className="flex flex-wrap gap-2">
-                {profiles.map((profiles) => (
-                  <Link
-                    key={profiles.id}
-                    href={`/profiles/${profiles.slug}`}
-                    className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm hover:bg-gray-300 transition-colors"
-                  >
-                    {profiles.name}
-                  </Link>
-                ))}
+                {profiles.map((profile) => {
+                  if (isProfileObject(profile)) {
+                    return (
+                      <Link
+                        key={profile.id}
+                        href={`/profiles/${profile.slug}`}
+                        className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm hover:bg-gray-300 transition-colors"
+                      >
+                        {profile.name}
+                      </Link>
+                    )
+                  }
+                  return null
+                })}
               </div>
             </div>
           )}
