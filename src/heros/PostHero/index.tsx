@@ -1,5 +1,6 @@
 import { formatDateTime } from 'src/utilities/formatDateTime'
 import React from 'react'
+import Link from 'next/link'
 
 import type { Post } from '@/payload-types'
 
@@ -9,7 +10,14 @@ import { formatAuthors } from '@/utilities/formatAuthors'
 export const PostHero: React.FC<{
   post: Post
 }> = ({ post }) => {
-  const { categories, meta: { image: metaImage } = {}, populatedAuthors, publishedAt, title } = post
+  const {
+    categories,
+    meta: { image: metaImage } = {},
+    populatedAuthors,
+    publishedAt,
+    title,
+    profiles,
+  } = post
 
   const hasAuthors =
     populatedAuthors && populatedAuthors.length > 0 && formatAuthors(populatedAuthors) !== ''
@@ -60,6 +68,24 @@ export const PostHero: React.FC<{
               </div>
             )}
           </div>
+
+          {/* Add Profiles section */}
+          {profiles && profiles.length > 0 && (
+            <div className="mt-6">
+              <h2 className="text-xl font-semibold mb-2">Profiles:</h2>
+              <div className="flex flex-wrap gap-2">
+                {profiles.map((profiles) => (
+                  <Link
+                    key={profiles.id}
+                    href={`/profiles/${profiles.slug}`}
+                    className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm hover:bg-gray-300 transition-colors"
+                  >
+                    {profiles.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

@@ -150,7 +150,18 @@ export interface Category {
  */
 export interface Profile {
   id: string;
-  title: string;
+  name: string;
+  description?: string | null;
+  image?: (string | null) | Media;
+  socialLinks?:
+    | {
+        platform: 'Twitter' | 'Facebook' | 'LinkedIn' | 'Instagram' | 'Website';
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -1038,7 +1049,18 @@ export interface PagesSelect<T extends boolean = true> {
  * via the `definition` "Profiles_select".
  */
 export interface ProfilesSelect<T extends boolean = true> {
-  title?: T;
+  name?: T;
+  description?: T;
+  image?: T;
+  socialLinks?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
+        id?: T;
+      };
+  slug?: T;
+  slugLock?: T;
   updatedAt?: T;
   createdAt?: T;
 }

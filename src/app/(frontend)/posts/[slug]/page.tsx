@@ -15,6 +15,7 @@ import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { ArrowBigLeft, ArrowBigRight } from 'lucide-react'
+import Link from 'next/link'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -52,23 +53,27 @@ export default async function Post({ params: paramsPromise }: Args) {
 
   return (
     <article className="pt-2 pb-2 ">
-      <ArrowBigLeft className="size-10 ml-40 absolute mt-5" />
+      {/* <ArrowBigLeft className="size-10 ml-40 absolute mt-5" /> */}
       <PageClient />
 
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
 
       {draft && <LivePreviewListener />}
-      <p>Profiles</p>
 
-      <div className="pt-20 sm:pt-20 md:pt-24 lg:pt-0">
+      {/* <Link
+        key={profile.id}
+        href={`/profiles/${profile.slug}`}
+        className="flex items-center bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm mr-2 mb-2 hover:bg-gray-300 transition-colors"
+      >
+        {profile.name}
+      </Link> */}
+      <div className="flex items-center justify-center pt-20 sm:pt-20 md:pt-24 lg:pt-4">
         <PostHero post={post} />
       </div>
 
       <div className="flex flex-col items-center gap-4 pt-6 bg-[#000000]">
         <div className="container bg-[#000000]">
-          <p>posthero</p>
-
           <RichText
             className="max-w-[55rem] mx-auto font-poppins text-white bg-[#000000]"
             data={post.content}
@@ -101,7 +106,7 @@ const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
 
   const result = await payload.find({
     collection: 'posts',
-    draft,
+    draft: true,
     limit: 1,
     overrideAccess: draft,
     pagination: false,
@@ -110,6 +115,7 @@ const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
         equals: slug,
       },
     },
+    depth: 2,
   })
 
   return result.docs?.[0] || null
